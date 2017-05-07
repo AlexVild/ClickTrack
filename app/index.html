@@ -21,7 +21,7 @@
                   <div class="col-sm-2 col-sm-offset-3">
                       <div class="form-group">
                           <label for="bpmInput">BPM</label>
-                          <input type="number" max="999" min="1" class="form-control" id="bpmInput" aria-label="Beats per minute" ng-model="bpm">
+                          <input type="number" max="999" min="1" class="form-control" id="bpmInput" aria-label="Beats per minute" ng-change="stopMet()" ng-model="bpm">
                           <small id="bpmHelp" class="form-text text-muted">Beats Per Minute</small>
                       </div>
                   </div>

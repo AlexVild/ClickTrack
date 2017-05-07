@@ -22,12 +22,18 @@ angular.module('CTApp', [])
     var playMetInterval = function(){
         if(metPos >= $scope.perMeasure) metPos = 0;
         if(metPos === 0){
-            accent.play();
+            audioPlay(accent);
         } else{
-            beat.play();
+            audioPlay(beat);
         }
         metPos++;
     };
+
+    var audioPlay = function(clip){
+        clip.pause();
+        clip.currentTime = 0;
+        clip.play();
+    }
     var metSample = $interval(playMetInterval, getMetTime());
 
     $scope.toggleMet = function(){
