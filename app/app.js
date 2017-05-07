@@ -7,6 +7,9 @@ angular.module('CTApp', [])
     $scope.noteValues = [4, 8];
     $scope.noteValue = 4;
     $scope.playMet = false;
+    $scope.minBpm = 1;
+    $scope.maxBpm = 500;
+
     var metPos = 0;
     var accent = new Audio('src/accent.wav');
     var beat = new Audio('src/beat.wav');
@@ -49,10 +52,12 @@ angular.module('CTApp', [])
         if(newV === false){
             $interval.cancel(metSample);
         } else{
-            playMetInterval();
-            $timeout(function () {
-                metSample = $interval(playMetInterval, getMetTime());
-            }, getMetTime);
+            if($scope.bpm <= $scope.maxBpm && $scope.bpm >= $scope.minBpm){
+                playMetInterval();
+                $timeout(function () {
+                    metSample = $interval(playMetInterval, getMetTime());
+                }, getMetTime);
+            }
         }
     });
 });

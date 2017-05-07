@@ -21,7 +21,7 @@
                   <div class="col-sm-2 col-sm-offset-3">
                       <div class="form-group">
                           <label for="bpmInput">BPM</label>
-                          <input type="number" max="999" min="1" class="form-control" id="bpmInput" aria-label="Beats per minute" ng-change="stopMet()" ng-model="bpm">
+                          <input type="number" max="{{maxBpm}}" min="{{minBpm}}" class="form-control" id="bpmInput" aria-label="Beats per minute" ng-change="stopMet()" ng-model="bpm">
                           <small id="bpmHelp" class="form-text text-muted">Beats Per Minute</small>
                       </div>
                   </div>
@@ -41,7 +41,7 @@
               </div>
               <div class="row">
                   <div class="col-xs-2 col-xs-offset-5">
-                      <button class="btn btn-primary" ng-click="toggleMet()"><span ng-show="!playMet">Play</span><span ng-show="playMet">Stop</span></button>
+                      <button class="btn btn-primary" type="submit" aria-label="play metronome" ng-click="toggleMet()"><span ng-show="!playMet">Play</span><span ng-show="playMet">Stop</span></button>
                   </div>
               </div>
           </form>
